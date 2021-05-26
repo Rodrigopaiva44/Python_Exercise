@@ -1,0 +1,5 @@
+# Very first step 
+# Print "Hello, world!" on Python
+# Using the "print" command
+
+print("Hello, world!")
