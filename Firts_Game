@@ -1,0 +1,59 @@
+from random import randint
+from time import sleep
+game = ["ROCK", "PAPER", "SCISSORS"]
+scoreboard = 0
+score_player = 0
+score_computer = 0
+draw = 0
+while True:
+    sleep(1)
+    computer = randint(0,2)
+    # Match Point
+    if scoreboard == 5:
+        print('\033[1;31mTHE GAME IS OVER')
+        break
+    try:
+        player = int(input("\033[1;36m[0] ROCK\n"
+                      "[1] PAPER\n"
+                      "[2] SCISSORS\n"
+                      "> "))
+    except ValueError:
+        print("A LETTER WAS DIGITED! COMPUTER WINS")
+        score_computer += 99
+        break
+
+
+    # Checking if player move's OK
+    if player > 2 or player < 0:
+        print("\033[1;31mINVALID NUMBER! COMPUTER WINS!")
+        score_computer = 99
+        break
+    # Game
+    print(f'\033[1;33mPLAYER: {game[player]}')
+    print(f'\033[1;33mCOMPUTER: {game[computer]}')
+    print("-----------------")
+
+
+    # Player's point
+    if player == 0 and computer == 2 or player == 1 and computer == 0 or player == 2 and computer == 1:
+        print('\033[1;36mPLAYER WINS')
+        score_player += 1
+
+    # Computer's point
+    elif computer == 0 and player == 2 or computer == 1 and player == 0 or computer == 2 and player == 1:
+        print('\033[1;36mCOMPUTER WINS')
+        score_computer += 1
+    # Draw
+    else:
+        print("\033[1;36mDRAW")
+        draw += 1
+    print("\033[1;33m-----------------")
+    scoreboard += 1
+
+
+# SCOREBOARD
+print("\033[1;33m-----------")
+print("\033[1;36mSCOREBOARD")
+print(f'Player: {score_player}')
+print(f'Computer: {score_computer}')
+print(f'Draw: {draw}')
