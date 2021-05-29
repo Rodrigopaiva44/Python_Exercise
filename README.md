@@ -1,2 +1,2 @@
 # Python_Exercise
-# Some exercises that i did on Python
+# Here, i'll put my exercises and basic games that i create on python 3
